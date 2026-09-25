@@ -1,16 +1,16 @@
 import { useInView } from "@/hooks/useInView";
 
-type Line = { words: string[]; tone: "ink" | "cream" };
+type Line = { words: string[]; tone: "red" | "cream" };
 
 const LINES: Line[] = [
-  { words: ["GRANDES", "EVENTOS", "FAZEM"], tone: "ink" },
-  { words: ["PARTE", "DA", "NOSSA", "HISTÓRIA."], tone: "ink" },
+  { words: ["GRANDES", "EVENTOS", "FAZEM"], tone: "red" },
+  { words: ["PARTE", "DA", "NOSSA", "HISTÓRIA."], tone: "red" },
   { words: ["CRIAR", "OS", "PRÓXIMOS", "FAZ"], tone: "cream" },
   { words: ["PARTE", "DO", "NOSSO", "FUTURO."], tone: "cream" },
 ];
 
 const TONE_CLASS: Record<Line["tone"], string> = {
-  ink: "text-ink",
+  red: "text-trio-red",
   cream: "text-cream",
 };
 
@@ -20,12 +20,12 @@ const HistoriaFuturo = () => {
   let wordIndex = 0;
 
   return (
-    <section className="overflow-hidden bg-trio-red py-20 sm:py-28">
+    <section className="overflow-hidden bg-ink py-24 sm:py-32">
       <div ref={ref} className="container">
         {LINES.map((line, li) => (
           <div
             key={li}
-            className="flex flex-wrap justify-between gap-x-4 border-b border-ink/25 py-2 sm:py-3"
+            className="flex flex-wrap justify-between gap-x-4 border-b border-cream/15 py-3 sm:py-4"
           >
             {line.words.map((word) => {
               const i = wordIndex++;
@@ -42,7 +42,7 @@ const HistoriaFuturo = () => {
                   }
                 >
                   <span
-                    className={`word-hover text-display text-3xl leading-[1.05] sm:text-5xl md:text-6xl lg:text-7xl ${TONE_CLASS[line.tone]}`}
+                    className={`word-hover text-display text-4xl leading-[1.05] sm:text-6xl md:text-7xl lg:text-8xl ${TONE_CLASS[line.tone]}`}
                   >
                     {word}
                   </span>
@@ -53,8 +53,8 @@ const HistoriaFuturo = () => {
         ))}
       </div>
 
-      <div className="mt-10 flex justify-center sm:mt-14">
-        <span className="h-3 w-10 rounded-full border border-ink/40" aria-hidden="true" />
+      <div className="mt-12 flex justify-center sm:mt-16">
+        <span className="h-3 w-10 rounded-full border border-cream/30" aria-hidden="true" />
       </div>
     </section>
   );
