@@ -5,6 +5,7 @@ import ImpactMarquee from "@/components/ImpactMarquee";
 import Sobre from "@/components/Sobre";
 import Estatisticas from "@/components/Estatisticas";
 import OQueFazemos from "@/components/OQueFazemos";
+import HistoriaFuturo from "@/components/HistoriaFuturo";
 import VideoShowcase from "@/components/VideoShowcase";
 import EventosDestaque from "@/components/EventosDestaque";
 import Galeria from "@/components/Galeria";
@@ -22,6 +23,7 @@ const Home = () => {
         <Estatisticas />
         <Artistas />
         <OQueFazemos />
+        <HistoriaFuturo />
         <VideoShowcase />
         <EventosDestaque />
         <Galeria />

@@ -194,3 +194,23 @@
 
 .artists-track { cursor: grab; touch-action: pan-y; user-select: none; }
 .artists-track.is-dragging { cursor: grabbing; }
+
+/* Justified word-by-word statement: entrance settles with a slight tilt,
+   hover gives each word its own independent sway. */
+.reveal-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(14px) rotate(var(--wobble, -6deg));
+  transition: opacity 650ms cubic-bezier(0.34, 1.56, 0.64, 1), transform 650ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.reveal-word.is-visible {
+  opacity: 1;
+  transform: none;
+}
+.word-hover {
+  display: inline-block;
+  transition: transform 350ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.word-hover:hover {
+  transform: rotate(var(--wobble, -6deg));
+}
