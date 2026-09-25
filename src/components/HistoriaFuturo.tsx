@@ -54,10 +54,6 @@ const HistoriaFuturo = () => {
             })}
           </div>
         ))}
-
-        <div className="mt-12 flex justify-center sm:mt-16">
-          <span className="h-3 w-10 rounded-full border border-cream/30" aria-hidden="true" />
-        </div>
       </div>
     </section>
   );
