@@ -1,9 +1,28 @@
+import { useEffect, useState } from "react";
 import sobrePhoto from "@/assets/photos/foto075.jpg";
+import sobrePhoto2 from "@/assets/photos/foto02.jpg";
+import sobrePhoto3 from "@/assets/photos/foto029.jpg";
 import Pill from "./Pill";
 import DraggablePill from "./DraggablePill";
 import { useInView } from "@/hooks/useInView";
 
+const SOBRE_PHOTOS = [sobrePhoto, sobrePhoto2, sobrePhoto3];
+
 const Sobre = () => {
+  const [slideIndex, setSlideIndex] = useState(0);
+
+  useEffect(() => {
+    SOBRE_PHOTOS.forEach((src) => {
+      const image = new Image();
+      image.src = src;
+    });
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const id = window.setInterval(() => {
+      setSlideIndex((index) => (index + 1) % SOBRE_PHOTOS.length);
+    }, 1000);
+    return () => window.clearInterval(id);
+  }, []);
+
   const { ref, inView } = useInView<HTMLDivElement>();
   const v = (delay: number) => ({ transitionDelay: inView ? `${delay}ms` : "0ms" });
 
@@ -17,8 +36,9 @@ const Sobre = () => {
         className="relative flex min-h-[80vh] w-full flex-col justify-end sm:min-h-[85vh]"
       >
         <img
-          src={sobrePhoto}
-          alt="Show de fogos de artifício em estádio de Belo Horizonte produzido pela Trio"
+          src={SOBRE_PHOTOS[slideIndex]}
+          alt=""
+          aria-hidden="true"
           className="absolute inset-0 h-full w-full object-cover"
           loading="lazy"
         />

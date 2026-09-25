@@ -2,10 +2,10 @@ import { useInView } from "@/hooks/useInView";
 import { useCountUp } from "@/hooks/useCountUp";
 
 const STATS = [
-  { target: 200, suffix: "+", label: "Eventos realizados" },
-  { target: 12, suffix: "+", label: "Anos de mercado" },
-  { target: 100, suffix: "mil+", label: "Pessoas impactadas" },
-  { target: 20, suffix: "+", label: "Cidades atendidas" },
+  { target: 200, suffix: "", label: "Eventos realizados" },
+  { target: 12, suffix: "", label: "Anos de mercado" },
+  { target: 100, suffix: " mil", label: "Pessoas impactadas" },
+  { target: 20, suffix: "", label: "Cidades atendidas" },
 ];
 
 const StatItem = ({
@@ -29,7 +29,7 @@ const StatItem = ({
       style={{ transitionDelay: active ? `${delay}ms` : "0ms" }}
     >
       <p className="text-display text-5xl leading-none text-trio-red tabular-nums sm:text-6xl">
-        {count}
+        +{count}
         {suffix}
       </p>
       <p className="mt-3 text-xs font-semibold uppercase tracking-[0.15em] text-cream/60 sm:text-sm">

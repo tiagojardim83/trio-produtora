@@ -1,3 +1,4 @@
+import Artistas from "@/components/Artistas";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import ImpactMarquee from "@/components/ImpactMarquee";
@@ -19,6 +20,7 @@ const Home = () => {
         <ImpactMarquee />
         <Sobre />
         <Estatisticas />
+        <Artistas />
         <OQueFazemos />
         <VideoShowcase />
         <EventosDestaque />

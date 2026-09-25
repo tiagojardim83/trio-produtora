@@ -18,7 +18,8 @@ const Portfolio = () => {
           style={{ transitionDelay: inView ? "150ms" : "0ms" }}
         >
           As festas que
-          <br className="sm:hidden" /> a Trio assina
+          <br />
+          a Trio assina
         </h2>
       </div>
 
@@ -27,9 +28,9 @@ const Portfolio = () => {
           <img
             src={labelsImg}
             alt="Selos das festas assinadas pela Trio: ExpoAgro GV, Churrascão do Cruzeiro, Divina Folia, Buteco do Fila, Gevê Folia, Clube Filadelfia, Arraiá Cruzeiro"
-            className="h-14 w-auto shrink-0 sm:h-20"
+            className="h-[72px] w-auto shrink-0 sm:h-[104px]"
           />
-          <img src={labelsImg} alt="" aria-hidden="true" className="h-14 w-auto shrink-0 sm:h-20" />
+          <img src={labelsImg} alt="" aria-hidden="true" className="h-[72px] w-auto shrink-0 sm:h-[104px]" />
         </div>
       </div>
     </section>

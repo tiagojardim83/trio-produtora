@@ -166,10 +166,16 @@ const Hero = () => {
         />
 
         <div ref={hintRef} className="absolute inset-x-0 bottom-10 flex flex-col items-center gap-3">
-          <span className="text-xs font-semibold uppercase tracking-[0.3em] text-cream/60">
-            Role para continuar
-          </span>
-          <span className="animate-bounce-slow block h-8 w-px bg-cream/30" />
+          <svg
+            className="animate-bounce-slow h-8 w-8 text-cream/60"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1"
+            aria-hidden="true"
+          >
+            <path d="M12 3v18m-6-6 6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
         </div>
 
         <div ref={contentRef} className="absolute inset-0 opacity-0">

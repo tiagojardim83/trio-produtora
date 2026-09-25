@@ -109,7 +109,7 @@ const OQueFazemos = () => {
           }`}
           style={v(150)}
         >
-          Mais do que produzir eventos
+          Mais do que produzir eventos de impacto
         </h2>
         <p
           className={`reveal mt-4 text-sm font-semibold uppercase tracking-[0.15em] text-cream/60 ${

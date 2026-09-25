@@ -14,12 +14,26 @@ import p10 from "@/assets/photos/foto249.jpg";
 
 const PHOTOS = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10];
 
+// Six shared rows keep every column aligned, including the two portrait photos.
+const PLACEMENT = [
+  "lg:col-start-1 lg:row-start-1 lg:row-span-4",
+  "lg:col-start-1 lg:row-start-5 lg:row-span-2",
+  "lg:col-start-2 lg:row-start-1 lg:row-span-4",
+  "lg:col-start-2 lg:row-start-5 lg:row-span-2",
+  "lg:col-start-3 lg:row-start-1 lg:row-span-2",
+  "lg:col-start-3 lg:row-start-3 lg:row-span-2",
+  "lg:col-start-3 lg:row-start-5 lg:row-span-2",
+  "lg:col-start-4 lg:row-start-1 lg:row-span-2",
+  "lg:col-start-4 lg:row-start-3 lg:row-span-2",
+  "lg:col-start-4 lg:row-start-5 lg:row-span-2",
+];
+
 const GalleryTile = ({ photo, index }: { photo: string; index: number }) => {
   const { ref, inView } = useInView<HTMLDivElement>();
   return (
     <div
       ref={ref}
-      className={`reveal-scale mb-4 break-inside-avoid overflow-hidden rounded-xl bg-ink ring-1 ring-cream/10 ${
+      className={`reveal-scale min-h-0 min-w-0 overflow-hidden rounded-xl bg-ink ring-1 ring-cream/10 ${PLACEMENT[index]} ${
         inView ? "is-visible" : ""
       }`}
       style={{ transitionDelay: inView ? `${(index % 4) * 90}ms` : "0ms" }}
@@ -27,7 +41,7 @@ const GalleryTile = ({ photo, index }: { photo: string; index: number }) => {
       <img
         src={photo}
         alt="Momento de evento produzido pela Trio Produtora"
-        className="w-full object-cover transition-transform duration-500 hover:scale-105"
+        className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
         loading="lazy"
       />
     </div>
@@ -54,10 +68,12 @@ const Galeria = () => {
         </h2>
       </div>
 
-      <div className="container mt-14 columns-2 gap-4 sm:columns-3 lg:columns-4">
+      <div className="container mt-14">
+        <div className="grid grid-cols-2 auto-rows-[180px] gap-4 sm:auto-rows-[260px] lg:aspect-[1.875] lg:grid-cols-4 lg:grid-rows-6 lg:auto-rows-auto">
         {PHOTOS.map((photo, index) => (
           <GalleryTile key={index} photo={photo} index={index} />
         ))}
+        </div>
       </div>
     </section>
   );
