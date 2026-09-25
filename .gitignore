@@ -1,0 +1,8 @@
+node_modules
+dist
+dist-ssr
+*.local
+.DS_Store
+
+# Raw source photos/video — the site uses optimized copies in src/assets and public/
+Fotos/
