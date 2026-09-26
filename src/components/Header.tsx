@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const NAV_LINKS = [
-  { label: "Eventos", href: "#eventos" },
   { label: "Sobre", href: "#sobre" },
   { label: "O que fazemos", href: "#o-que-fazemos" },
+  { label: "Eventos", href: "#eventos" },
   { label: "Contato", href: "#contato" },
 ];
 
