@@ -34,7 +34,16 @@ const Header = () => {
         }`}
       >
         <div className="container relative z-50 flex h-20 items-center justify-between">
-          <Link to="/" aria-label="Trio Produtora — início" className="shrink-0" onClick={() => setOpen(false)}>
+          <Link
+            to="/"
+            aria-label="Trio Produtora — início"
+            className="shrink-0"
+            onClick={(e) => {
+              e.preventDefault();
+              setOpen(false);
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+          >
             <img src={`${import.meta.env.BASE_URL}logo-red.svg`} alt="Trio Produtora" className="h-7 w-auto" />
           </Link>
 
