@@ -28,29 +28,25 @@ const HistoriaFuturo = () => {
         {LINES.map((line, li) => (
           <div
             key={li}
-            className="flex flex-wrap justify-between gap-x-6 gap-y-2 border-b-0 border-cream/15 py-5 sm:border-b sm:gap-x-4 sm:py-8"
+            className={`text-display text-5xl decoration-2 underline-offset-[10px] leading-[1.55] sm:flex sm:flex-wrap sm:justify-between sm:gap-x-4 sm:text-7xl sm:leading-none sm:border-b sm:border-cream/15 sm:py-8 md:text-8xl lg:text-9xl ${TONE_CLASS[line.tone]}`}
           >
-            {line.words.map((word) => {
+            {line.words.map((word, wi) => {
               const i = wordIndex++;
               const wobble = i % 2 === 0 ? "-6deg" : "6deg";
               return (
-                <span
-                  key={i}
-                  className={`reveal-word w-full border-b border-cream/15 pb-2 sm:w-auto sm:border-b-0 sm:pb-0 ${
-                    inView ? "is-visible" : ""
-                  }`}
-                  style={
-                    {
-                      transitionDelay: inView ? `${i * 60}ms` : "0ms",
-                      "--wobble": wobble,
-                    } as React.CSSProperties
-                  }
-                >
+                <span key={i}>
                   <span
-                    className={`word-hover text-display text-5xl leading-[1.05] sm:text-7xl md:text-8xl lg:text-9xl ${TONE_CLASS[line.tone]}`}
+                    className={`reveal-word ${inView ? "is-visible" : ""}`}
+                    style={
+                      {
+                        transitionDelay: inView ? `${i * 60}ms` : "0ms",
+                        "--wobble": wobble,
+                      } as React.CSSProperties
+                    }
                   >
-                    {word}
+                    <span className="word-hover underline sm:no-underline">{word}</span>
                   </span>
+                  {wi < line.words.length - 1 ? <span className="underline sm:hidden"> </span> : null}
                 </span>
               );
             })}
