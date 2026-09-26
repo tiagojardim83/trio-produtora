@@ -39,7 +39,7 @@ const TicketRow = ({ evento, index }: { evento: Evento; index: number }) => {
       className={`reveal sticky top-0 h-[320px] overflow-hidden rounded-xl bg-ink pb-8 sm:h-[190px] sm:pb-4 ${
         inView ? "is-visible" : ""
       }`}
-      style={{ zIndex: 10 + index * 10 }}
+      style={{ zIndex: 1 + index }}
     >
       <EventTicket
         eyebrow="2027"
