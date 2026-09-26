@@ -23,12 +23,14 @@ const HistoriaFuturo = () => {
     <section className="overflow-hidden bg-ink">
       <div
         ref={ref}
-        className="container flex aspect-[9/16] flex-col justify-center py-16 sm:aspect-auto sm:py-32"
+        className="container flex flex-col justify-center py-10 sm:py-32"
       >
         {LINES.map((line, li) => (
           <div
             key={li}
-            className={`text-display text-5xl decoration-2 underline-offset-[10px] leading-[1.55] sm:flex sm:flex-wrap sm:justify-between sm:gap-x-4 sm:text-7xl sm:leading-none sm:border-b sm:border-cream/15 sm:py-8 md:text-8xl lg:text-9xl ${TONE_CLASS[line.tone]}`}
+            className={`text-display text-5xl decoration-2 underline-offset-[10px] leading-[1.55] ${
+              li % 2 === 0 ? "text-left" : "text-right"
+            } sm:flex sm:flex-wrap sm:justify-between sm:gap-x-4 sm:text-7xl sm:leading-none sm:text-left sm:border-b sm:border-cream/15 sm:py-8 md:text-8xl lg:text-9xl ${TONE_CLASS[line.tone]}`}
           >
             {line.words.map((word, wi) => {
               const i = wordIndex++;
