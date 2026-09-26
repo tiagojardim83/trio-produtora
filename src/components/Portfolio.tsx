@@ -12,14 +12,13 @@ const Portfolio = () => {
           <Pill tone="cream">Portfólio</Pill>
         </div>
         <h2
-          className={`reveal mt-6 max-w-xl text-display text-5xl leading-[1] text-cream sm:text-6xl sm:leading-[0.9] ${
+          className={`reveal mt-6 max-w-xl text-display text-5xl leading-[1] text-cream sm:max-w-none sm:whitespace-nowrap sm:text-6xl sm:leading-[0.9] sm:text-trio-red ${
             inView ? "is-visible" : ""
           }`}
           style={{ transitionDelay: inView ? "150ms" : "0ms" }}
         >
           As festas que
-          <br />
-          a Trio assina
+          <br className="sm:hidden" /> a Trio assina
         </h2>
       </div>
 

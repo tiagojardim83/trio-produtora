@@ -28,7 +28,7 @@ const HistoriaFuturo = () => {
         {LINES.map((line, li) => (
           <div
             key={li}
-            className="flex flex-wrap justify-between gap-x-6 gap-y-2 border-b border-cream/15 py-5 sm:gap-x-4 sm:py-8"
+            className="flex flex-wrap justify-between gap-x-6 gap-y-2 border-b-0 border-cream/15 py-5 sm:border-b sm:gap-x-4 sm:py-8"
           >
             {line.words.map((word) => {
               const i = wordIndex++;
@@ -36,7 +36,9 @@ const HistoriaFuturo = () => {
               return (
                 <span
                   key={i}
-                  className={`reveal-word ${inView ? "is-visible" : ""}`}
+                  className={`reveal-word w-full border-b border-cream/15 pb-2 sm:w-auto sm:border-b-0 sm:pb-0 ${
+                    inView ? "is-visible" : ""
+                  }`}
                   style={
                     {
                       transitionDelay: inView ? `${i * 60}ms` : "0ms",

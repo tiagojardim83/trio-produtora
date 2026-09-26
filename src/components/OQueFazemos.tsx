@@ -37,7 +37,7 @@ const FRENTES: Frente[] = [
     description: "Integração entre marcas, eventos e público através de experiências relevantes.",
     photo: experienciasPhoto,
     alt: "Convidada segurando lata de cerveja Bohemia em ativação de marca",
-    objectPosition: "center 15%",
+    objectPosition: "62% 62%",
   },
 ];
 
