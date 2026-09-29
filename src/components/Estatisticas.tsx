@@ -3,25 +3,27 @@ import { useCountUp } from "@/hooks/useCountUp";
 
 const STATS = [
   { target: 200, suffix: "", label: "Eventos realizados" },
-  { target: 12, suffix: "", label: "Anos de mercado" },
-  { target: 100, suffix: " mil", label: "Pessoas impactadas" },
+  { target: 13, suffix: "", label: "Anos de mercado" },
+  { target: 2.5, decimals: 1, suffix: " mi", label: "Pessoas impactadas" },
   { target: 20, suffix: "", label: "Cidades atendidas" },
 ];
 
 const StatItem = ({
   target,
+  decimals = 0,
   suffix,
   label,
   active,
   delay,
 }: {
   target: number;
+  decimals?: number;
   suffix: string;
   label: string;
   active: boolean;
   delay: number;
 }) => {
-  const count = useCountUp(target, active, 1300);
+  const count = useCountUp(target, active, 1300, decimals);
 
   return (
     <div
@@ -29,7 +31,7 @@ const StatItem = ({
       style={{ transitionDelay: active ? `${delay}ms` : "0ms" }}
     >
       <p className="text-display text-5xl leading-none text-trio-red tabular-nums sm:text-6xl">
-        +{count}
+        +{count.toLocaleString("pt-BR", { minimumFractionDigits: decimals })}
         {suffix}
       </p>
       <p className="mt-3 text-xs font-semibold uppercase tracking-[0.15em] text-cream/60 sm:text-sm">

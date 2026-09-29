@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
  * to 0 when it turns false — so pairing this with useInView's inView flag
  * replays the count every time the stat re-enters the viewport.
  */
-export function useCountUp(target: number, active: boolean, duration = 1400) {
+export function useCountUp(target: number, active: boolean, duration = 1400, decimals = 0) {
   const [value, setValue] = useState(0);
   const reducedMotion = useRef(false);
 
@@ -30,13 +30,14 @@ export function useCountUp(target: number, active: boolean, duration = 1400) {
     const tick = (now: number) => {
       const t = Math.min(1, (now - start) / duration);
       const eased = 1 - Math.pow(1 - t, 3);
-      setValue(Math.round(eased * target));
+      const factor = 10 ** decimals;
+      setValue(Math.round(eased * target * factor) / factor);
       if (t < 1) raf = requestAnimationFrame(tick);
     };
 
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [active, target, duration]);
+  }, [active, target, duration, decimals]);
 
   return value;
 }
